@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+
+</head>
+
+<body>
+  <main class="container">
+    <header class="form-header">
+
+      <div class="back-card">
+        <p id="card-cv">000</p>
+      </div>
+
+      <div class="front-card">
+        <header class="fron__card-header">
+          <img class="front__card-logo" src="images/card-logo.svg" alt="" srcset="">
+        </header>
+        <div class="front__card-info">
+          <p id="card-number">0000 0000 0000 0000</p>
+          <p id="card-name">jane applessed</p>
+          <div id="card-date">
+            <p id="card-mm">00</p>/<p id="card-yy">00</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <form action="#" id="card-form" class="form" autocomplete="off">
+
+      <!-- Card name -->
+      <div class="input-container" id="group-name">
+        <label for="card-name">CARDHOLDER NAME</label>
+        <input class="form-inputs" type="text" name="card-name" id="card-name" placeholder="e.g Jane Appleseed"
+          pattern="^[a-zA-ZÀ-ÿ\s]{1,40}$" title="Wrong format, letters only" required>
+      </div>
+
+      <!-- Card number -->
+      <div class="input-container" id="group-number">
+        <label for="card-name">CARD NUMBER</label>
+        <input class="form-inputs" type="text" name="card-number" id="card-number"
+          placeholder="e.g. 1234 5678 9123 0000" pattern="^\d{16,16}$" title="Wrong format, number only" required
+          minlength="16" maxlength="16">
+      </div>
+
+      <div class="datecv-container">
+        <div class="input__date-container">
+          <div class="input-container" id="group-date">
+            <label for="mm">EXP. DATE (MM/YY)</label>
+            <div class="mmyy-group">
+              <input class="form-inputs" type="tel" name="card-mm" id="mm" placeholder="MM" pattern="^\d{1,2}$"
+                title="" required maxlength="2">
+              <input class="form-inputs" type="tel" name="card-yy" id="card-yy" placeholder="YY" pattern="^\d{1,2}$"
+                title=" Can't be blank" required maxlength="2">
+            </div>
+          </div>
+        </div>
+        <div class="input-container" id="group-cv">
+          <label for="cv">CV</label>
+          <div>
+            <input class="form-inputs" type="tel" name="card-cv" id="cv" placeholder="e.g. 123" pattern="^\d{3,3}$"
+              title="Can't be blank" required maxlength="3">
+          </div>
+        </div>
+      </div>
+      <button class="btn-submit" type="submit">Confirm</button>
+      <img class="loader none" src="images/loading.svg" alt="">
+    </form>
+  </main>
+  <script src="js/form_validation.js"></script>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">JessZB</a>.
+  </div>
+</body>
+
+</html>

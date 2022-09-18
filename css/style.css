@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-grayish-violet: hsl(270, 3%, 87%);
+  --Dark-grayish-violet: hsl(279, 6%, 55%);
+  --Very-dark-violet: hsl(278, 68%, 11%);
+  --gradient1: hsl(249, 99%, 64%);
+  --gradient2: hsl(278, 94%, 30%);
+  --error: hsl(0, 100%, 66%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body {
+  background-color: var(--Light-grayish-violet);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  background-color: var(--White);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-color: var(--White);
+}
+
+.form {
+  margin: auto;
+  display: flex;
+  height: 70vh;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  max-width: 500px;
+  position: relative;
+}
+
+.form-header {
+  position: relative;
+  width: 100%;
+  min-height: 240px;
+  background: url(../images/bg-main-mobile.png) center no-repeat;
+  background-size: cover;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 0.5rem;
+}
+
+.form-inputs {
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--Light-grayish-violet);
+  border-radius: 8px;
+  color: var(--Very-dark-violet);
+  transition: all 0.3s ease;
+}
+
+.form-inputs:focus {
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: linear-gradient(var(--White) 0 0) padding-box,
+    linear-gradient(45deg, var(--gradient1), var(--gradient2)) border-box;
+}
+
+.form-inputs::placeholder {
+  color: var(--Light-grayish-violet);
+}
+
+label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: .5rem 0;
+  font-weight: bold;
+  color: var(--Very-dark-violet);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: .5rem;
+}
+
+.datecv-container{
+  display: flex;
+  gap: 1rem;
+}
+
+.input__date-container {
+  display: flex;
+  gap: 0.8rem;
+}
+.mmyy-group{
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.mmyy-group .form-inputs{
+  display: block;
+  width: 4rem;
+}
+
+.btn-submit, .finish-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  color: white;
+  background-color: var(--Very-dark-violet);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Validations */
+
+.form-error{
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0px;
+  color:hsl(0, 100%, 66%);
+  letter-spacing: 2px;
+  padding: .5rem 0;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+.form-error.visible{
+  display: block;
+  font-size: 12px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.form-inputs.error{
+  border: 1px solid var(--error); 
+}
+
+/* CARDS DESIGN */
+
+.back-card {
+  height: 159px;
+  width: 290px;
+  position: absolute;
+  z-index: 50;
+  top: 2rem;
+  right: 1rem;
+  border-radius: 10px;
+  background: url(../images/bg-card-back.png) no-repeat;
+  background-size: contain;
+  /* background-color: transparent; */
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 2rem;
+
+  -webkit-box-shadow: 0px 3px 26px 0px rgba(0,0,0,0.20); 
+  box-shadow: 0px 3px 26px 0px rgba(0,0,0,0.20);
+  -moz-box-shadow: 0px 3px 26px 0px rgba(0,0,0,0.20);
+}
+
+.back-card p {
+  font-size: 0.6rem;
+}
+
+.front-card {
+  height: 159px;
+  width: 290px;
+  position: absolute;
+  z-index: 100;
+  top: 7rem;
+  left: 1rem;
+  border-radius: 10px;
+  background: url(../images/bg-card-front.png) no-repeat;
+  background-size: contain;
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  
+  -webkit-box-shadow: 0px 3px 26px 0px rgba(0,0,0,0.20); 
+  box-shadow: 0px 3px 26px 0px rgba(0,0,0,0.20);
+  -moz-box-shadow: 0px 3px 26px 0px rgba(0,0,0,0.20);
+}
+
+.front__card-header {
+  width: 100%;
+  flex-grow: 1;
+}
+.front__card-logo {
+  height: 30px;
+  object-fit: contain;
+}
+
+.front__card-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  flex-grow: 0;
+}
+
+.front-card #card-number{
+  font-size: inherit;
+  flex-basis: 100%;
+}
+
+.front-card #card-date{
+  display: flex;
+  font-size: .5rem;
+}
+
+.front-card p,
+.back-card p {
+  text-transform: uppercase;
+  font-size: 0.5rem;
+}
+
+/* Submit */
+
+.loader{
+  height: 60px;
+  object-fit: contain;
+}
+
+.none{
+  display: none;
+}
+
+.submit-section{
+  top: 0;
+  background-color: var(--White);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  max-width: 450px;
+  z-index: 500;
+  opacity: 1;
+  visibility: visible;
+}
+.none{
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.submit-section h2{
+  letter-spacing: 2px;
+  font-size: 2rem;
+  font-weight: 100;
+  color: var(--Very-dark-violet);
+}
+
+.submit-section p{
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: .8rem;
+  color: var(--Dark-grayish-violet);
+}
+
+@media (min-width: 900px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .form-header {
+    height: 100vh;
+    max-width: 30%;
+    background: url(../images/bg-main-desktop.png) center no-repeat;
+    background-size: cover;
+  }
+
+  .form {
+    margin-top: 0;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  .back-card {
+    top: initial;
+    bottom: 20vh;
+    right: -5rem;
+  }
+
+  .front-card {
+    top: 20vh;
+    left: initial;
+    right: -3rem;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .front-card, .back-card{
+    height: 192px;
+    width: 350px;
+  }
+  .front-card{
+    right: -6rem;
+  }
+  .back-card{
+    right: -9rem;
+  }
+}
